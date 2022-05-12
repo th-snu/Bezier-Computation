@@ -1,0 +1,10 @@
+all: ga
+
+ga: curve.cpp curve.h main.cpp
+	g++ -g -o bezier curve.cpp biarc_approx.cpp aabb.cpp hausdorff.cpp main.cpp -lm -lGL -lGLU -lglut -lGLEW
+	
+run: ga
+	./bezier < rr.in > rr.out
+
+clean:
+	rm ga
